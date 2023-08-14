@@ -112,7 +112,8 @@ public class Main {
         assert Loops.splitAndSumIntegers(123456).equals("6 5 4 3 2 1\n" + "Сумма = 21");
 
         //Task 5 - print multiplication table in range from 0 to 9
-        //Loops.printMultiplicationTable();
+        Loops.printMultiplicationTable();
+        Loops.printMultiplicationTableNM();
 
         //Task 6 - one child has 1 apple, 2nd - 2, etc, show balance in apples
         assert Loops.getAppleBalance(3) == 6;
