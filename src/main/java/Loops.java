@@ -33,20 +33,28 @@ public class Loops {
      * Использовать разные циклы (for, while).
      */
     static String getIntRangeFor(int min, int max, int step){
+        if (step < 1) {
+            return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
+        }
         String txt = "Числа в диапазоне от " + min + " до " + max + ": ";
         for(int i = min; i <= max; i += step){
             txt += i + " ";
         }
+        System.out.println(txt);
         return txt.trim();
     }
 
     static String getIntRangeWhile(int min, int max, int step){
+        if (step < 1) {
+            return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
+        }
         String txt = "Числа в диапазоне от " + min + " до " + max + ": ";
         int i = min;
         while (i <= max){
             txt += i + " ";
             i += step;
         }
+        System.out.println(txt);
         return txt.trim();
     }
 
@@ -63,7 +71,8 @@ public class Loops {
             int digit = number % 10;
             digitsString += digit + " ";
             number /= 10;
-        }
+            }
+        System.out.println(digitsString);
         return digitsString.trim();
     }
 
@@ -82,6 +91,7 @@ public class Loops {
             sum += digit;
             number /= 10;
         }
+        System.out.println(digitsString + "\nСумма = " + sum);
         return digitsString.trim() + "\nСумма = " + sum;
     }
 
@@ -89,12 +99,33 @@ public class Loops {
      * Task 5:Написать код, который будет выводить таблицу умножения в диапазоне между 0 и 9.
      */
     static void printMultiplicationTable(){
-        for (int i = 0; i < 10; i++){
+        for (int i = 1; i < 10; i++){
             for(int j = 1; j < 10; j++){
-                System.out.println( i + " * " + j + " = " + (i * j));
+                System.out.print(j + " x " + i + " = " + (j*i) + "\t");
             }
+            System.out.println("\n");
         }
     }
+
+    static void printMultiplicationTableNM(){
+        int columns = 9;
+        int rows = 9;
+        String table;
+        table = "\t|\t";
+        for (int i = 1; i <= columns; i++){
+            table += i + "\t";
+        }
+        table += "\n";
+        for (int j = 1; j <= rows; j++){
+            table += j + "\t|\t";
+            for (int k = 1; k <= columns; k++){
+                table += (j*k) + "\t";
+            }
+            table += "\n";
+        }
+        System.out.print(table);
+    }
+
 
     /**
      * Task 6:Есть семья из n детей (n - переменная). У каждого ребенка есть яблоки: у первого - одно, у второго - два, etc.
@@ -109,6 +140,7 @@ public class Loops {
         for (int i = 0; i <= n; i++){
             balance += i;
         }
+        System.out.println("Положительный баланс семьи в яблоках: " + balance);
         return balance;
     }
 
@@ -140,12 +172,14 @@ public class Loops {
         for (int j = 0; j < b.length(); j++){
            if (a.charAt(i) == b.charAt(j)){
                charExists = true;
+               break;
            }
         }
         if (!charExists) {
             missedCharacters += a.charAt(i) + " ";
         }
     }
+    System.out.println("Символы из первой строки, которых нет во второй: " + missedCharacters);
     return missedCharacters.trim();
     }
 
