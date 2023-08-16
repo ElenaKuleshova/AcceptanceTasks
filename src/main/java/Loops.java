@@ -32,27 +32,46 @@ public class Loops {
      * с определенным шагом (например, min = 0, max = 15, step = 5 выведет 0, 5, 10, 15).
      * Использовать разные циклы (for, while).
      */
-    static String getIntRangeFor(int min, int max, int step){
+    static String getIntRangeFor(int rangeStart, int rangeFinish, int step){
         if (step < 1) {
             return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
         }
-        String txt = "Числа в диапазоне от " + min + " до " + max + ": ";
-        for(int i = min; i <= max; i += step){
+        String txt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        if (rangeStart < rangeFinish){
+        for(int i = rangeStart; i <= rangeFinish; i += step){
             txt += i + " ";
+            }
+        } else if (rangeStart > rangeFinish) {
+            for(int i = rangeStart; i >= rangeFinish; i -= step){
+                txt += i + " ";
+            }
+        } else {
+            txt += rangeStart;
         }
         System.out.println(txt);
         return txt.trim();
     }
 
-    static String getIntRangeWhile(int min, int max, int step){
+    static String getIntRangeWhile(int rangeStart, int rangeFinish, int step){
         if (step < 1) {
             return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
         }
-        String txt = "Числа в диапазоне от " + min + " до " + max + ": ";
-        int i = min;
-        while (i <= max){
+        String txt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        int i = rangeStart;
+        if (rangeStart < rangeFinish){
+            while (i <= rangeFinish){
             txt += i + " ";
             i += step;
+            }
+        }
+        if (rangeStart > rangeFinish){
+            while (i >= rangeFinish){
+                txt += i + " ";
+                i -= step;
+            }
+        }
+        if (rangeStart == rangeFinish){
+            txt += rangeStart;
         }
         System.out.println(txt);
         return txt.trim();
@@ -107,18 +126,18 @@ public class Loops {
         }
     }
 
-    static void printMultiplicationTableNM(){
-        int columns = 9;
-        int rows = 9;
+    static void printMultiplicationTableNM(int rows, int columns){
+        int n = rows;
+        int m = columns;
         String table;
         table = "\t|\t";
-        for (int i = 1; i <= columns; i++){
+        for (int i = 1; i <= m; i++){
             table += i + "\t";
         }
         table += "\n";
-        for (int j = 1; j <= rows; j++){
+        for (int j = 1; j <= n; j++){
             table += j + "\t|\t";
-            for (int k = 1; k <= columns; k++){
+            for (int k = 1; k <= m; k++){
                 table += (j*k) + "\t";
             }
             table += "\n";

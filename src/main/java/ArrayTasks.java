@@ -62,18 +62,19 @@ public class ArrayTasks {
      */
 
     static String findMinMaxInArray(int[] array){
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for(int arrayElement : array){
-            if (arrayElement < min){
-                min = arrayElement;
+        int min, max;
+        min = max = array[0];
+        for(int i = 1; i < array.length; i++){
+            if (array[i] < min){
+                min = array[i];
             }
-            if (arrayElement > max){
-                max = arrayElement;
+            if (array[i] > max){
+                max = array[i];
             }
         }
         return "Min value = " + min + ", Max value = " + max;
     }
+
 
 
 }

@@ -83,7 +83,7 @@ public class Main {
         assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(10,0)).equals("осталось 7 часов");
         assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(9,50)).equals("осталось 7 часов");
         assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(14,0)).equals("осталось 3 часа");
-        assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(16,0)).equals("осталось 1 час");
+        assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(16,0)).equals("остался 1 час");
         assert Conditions.printHoursLeftToWorkEnd(Conditions.getHoursToWorkDayEnd(16,30)).equals("осталось менее часа");
 
         //Task 9
@@ -103,6 +103,9 @@ public class Main {
         //Task 2 - Integers range with min, max and step
         assert Loops.getIntRangeFor(-5, 8, 1).equals("Числа в диапазоне от -5 до 8: -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8");
         assert Loops.getIntRangeWhile(0, 15, 5).equals("Числа в диапазоне от 0 до 15: 0 5 10 15");
+        Loops.getIntRangeFor(8, 3, 2);
+        Loops.getIntRangeFor(8, 8, 8);
+        Loops.getIntRangeWhile(3, 1, 1);
 
         //Task 3 - Split Number to single digits starting form the end
         assert Loops.splitNumberToIntegers(123456).equals("6 5 4 3 2 1");
@@ -113,7 +116,7 @@ public class Main {
 
         //Task 5 - print multiplication table in range from 0 to 9
         Loops.printMultiplicationTable();
-        Loops.printMultiplicationTableNM();
+        Loops.printMultiplicationTableNM(2,9);
 
         //Task 6 - one child has 1 apple, 2nd - 2, etc, show balance in apples
         assert Loops.getAppleBalance(3) == 6;
