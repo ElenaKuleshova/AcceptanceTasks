@@ -33,48 +33,80 @@ public class Loops {
      * Использовать разные циклы (for, while).
      */
     static String getIntRangeFor(int rangeStart, int rangeFinish, int step){
-        if (step < 1) {
-            return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
+        String error;
+        if (step == 0) {
+            error = "Шаг не должен быть равен 0. Попробуйте снова.";
+            System.out.println(error);
+            return error;
         }
-        String txt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        String validTxt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        if (rangeStart == rangeFinish){
+            validTxt += rangeStart;
+            System.out.println(validTxt);
+            return validTxt;
+        }
         if (rangeStart < rangeFinish){
-        for(int i = rangeStart; i <= rangeFinish; i += step){
-            txt += i + " ";
+            if (step < 0 ){
+                error = "Возрастающая последовательность: Шаг должен быть положительным. Попробуйте ещё раз";
+                System.out.println(error);
+                return error;
             }
-        } else if (rangeStart > rangeFinish) {
-            for(int i = rangeStart; i >= rangeFinish; i -= step){
-                txt += i + " ";
+            for(int i = rangeStart; i <= rangeFinish; i += step){
+            validTxt += i + " ";
             }
-        } else {
-            txt += rangeStart;
         }
-        System.out.println(txt);
-        return txt.trim();
+       if (rangeStart > rangeFinish) {
+           if (step > 0 ){
+               error = "Убывающая последовательность: Шаг должен быть отрицательным. Попробуйте ещё раз";
+               System.out.println(error);
+               return error;
+           }
+            for(int i = rangeStart; i >= rangeFinish; i += step){
+                validTxt += i + " ";
+            }
+        }
+        System.out.println(validTxt);
+        return validTxt.trim();
     }
 
     static String getIntRangeWhile(int rangeStart, int rangeFinish, int step){
-        if (step < 1) {
-            return "Шаг должен быть больше либо равен 1. Попробуйте снова.";
+        String error;
+        if (step == 0) {
+            error = "Шаг не должен быть равен 0. Попробуйте снова.";
+            System.out.println(error);
+            return error;
         }
-        String txt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        String validTxt = "Числа в диапазоне от " + rangeStart + " до " + rangeFinish + ": ";
+        if (rangeStart == rangeFinish){
+            validTxt += rangeStart;
+            System.out.println(validTxt);
+            return validTxt;
+        }
         int i = rangeStart;
         if (rangeStart < rangeFinish){
+            if (step < 0 ){
+                error = "Возрастающая последовательность: Шаг должен быть положительным. Попробуйте ещё раз";
+                System.out.println(error);
+                return error;
+            }
             while (i <= rangeFinish){
-            txt += i + " ";
+            validTxt += i + " ";
             i += step;
             }
         }
         if (rangeStart > rangeFinish){
+            if (step > 0){
+                error = "Убывающая последовательность: Шаг должен быть отрицательным. Попробуйте ещё раз";
+                System.out.println(error);
+                return error;
+            }
             while (i >= rangeFinish){
-                txt += i + " ";
-                i -= step;
+                validTxt += i + " ";
+                i += step;
             }
         }
-        if (rangeStart == rangeFinish){
-            txt += rangeStart;
-        }
-        System.out.println(txt);
-        return txt.trim();
+        System.out.println(validTxt);
+        return validTxt.trim();
     }
 
     /**
@@ -126,7 +158,7 @@ public class Loops {
         }
     }
 
-    static void printMultiplicationTableNM(int rows, int columns){
+    static void printMultiplicationTable(int rows, int columns){
         int n = rows;
         int m = columns;
         String table;

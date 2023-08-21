@@ -101,11 +101,19 @@ public class Main {
         assert !Loops.isPalindromeWhile("a12r");
 
         //Task 2 - Integers range with min, max and step
-        assert Loops.getIntRangeFor(-5, 8, 1).equals("Числа в диапазоне от -5 до 8: -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8");
         assert Loops.getIntRangeWhile(0, 15, 5).equals("Числа в диапазоне от 0 до 15: 0 5 10 15");
-        Loops.getIntRangeFor(8, 3, 2);
-        Loops.getIntRangeFor(8, 8, 8);
-        Loops.getIntRangeWhile(3, 1, 1);
+        assert Loops.getIntRangeFor(-5, 8, 1).equals("Числа в диапазоне от -5 до 8: -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8");
+        assert Loops.getIntRangeFor(3, 1, 0).equals("Шаг не должен быть равен 0. Попробуйте снова.");
+        assert Loops.getIntRangeFor(8, 8, 8).equals("Числа в диапазоне от 8 до 8: 8");
+        assert Loops.getIntRangeFor(1, 15, -9).equals("Возрастающая последовательность: Шаг должен быть положительным. Попробуйте ещё раз");
+        assert Loops.getIntRangeFor(8, 3, 2).equals("Убывающая последовательность: Шаг должен быть отрицательным. Попробуйте ещё раз");
+
+        Loops.getIntRangeWhile(6, 16, 2);
+        Loops.getIntRangeWhile(16, 6, -2);
+        Loops.getIntRangeWhile(0, 10, 0);
+        Loops.getIntRangeWhile(5, 5, 5);
+        Loops.getIntRangeWhile(3, 30, -1);
+        Loops.getIntRangeWhile(10, -1, 5);
 
         //Task 3 - Split Number to single digits starting form the end
         assert Loops.splitNumberToIntegers(123456).equals("6 5 4 3 2 1");
@@ -116,7 +124,7 @@ public class Main {
 
         //Task 5 - print multiplication table in range from 0 to 9
         Loops.printMultiplicationTable();
-        Loops.printMultiplicationTableNM(2,9);
+        Loops.printMultiplicationTable(2,9);
 
         //Task 6 - one child has 1 apple, 2nd - 2, etc, show balance in apples
         assert Loops.getAppleBalance(3) == 6;
