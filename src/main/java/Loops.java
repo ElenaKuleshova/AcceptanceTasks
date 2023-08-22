@@ -52,7 +52,7 @@ public class Loops {
                 return error;
             }
             for(int i = rangeStart; i <= rangeFinish; i += step){
-            validTxt += i + " ";
+                validTxt += i + " ";
             }
         }
        if (rangeStart > rangeFinish) {
